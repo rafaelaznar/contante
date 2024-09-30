@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RandomIntegerGeneratorService } from '../../services/random-integer-generator.service';
 
 @Component({
   selector: 'app-componente-no-enrutado',
@@ -10,9 +11,12 @@ import { Component, OnInit } from '@angular/core';
 
 export class ComponenteNoEnrutadoComponent implements OnInit {
 
-  constructor() { }
+  numeroAleatorio: number = 0;
+
+  constructor(private oRandomIntegerGeneratorService: RandomIntegerGeneratorService) { }
 
   ngOnInit() {
+    this.numeroAleatorio = this.oRandomIntegerGeneratorService.generateRandomInteger(1, 100);
   }
 
 }
