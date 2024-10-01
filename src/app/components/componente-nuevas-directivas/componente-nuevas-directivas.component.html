@@ -1,0 +1,97 @@
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Número 1</span>
+  <input type="text" class="form-control" placeholder="numero 1" aria-label="numero 1" aria-describedby="basic-addon1" [(ngModel)]="numero1">
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Número 2</span>
+  <input type="text" class="form-control" placeholder="numero 2" aria-label="numero 2" aria-describedby="basic-addon1" [(ngModel)]="numero2">
+</div>
+
+
+@if (numero1<numero2){ 
+  <h1>El número 1 es menor que el número 2</h1>  
+}@else if (numero1==numero2){
+  <h1>El número 1 es igual al número 2</h1>
+}@else{
+  <h1>El número 1 es mayor que el número 2</h1>
+}
+
+
+<h2>Switch (ojo convertir a string)</h2>
+
+@switch (numero1 + '') {
+  @case ('1') {
+    <h1>El número 1 es el 1</h1>
+    break;
+  }
+  @case ('2') {
+    <h1>El número 1 es 2</h1>
+    break;
+  }
+  @case ('3') {
+    <h1>El número 1 es 3</h1>
+    break;
+  }
+  @default {
+    <h1>El número 1 no es 1, 2 ni 3</h1>
+  }
+}
+
+
+
+<ul class="list-group m-5">
+@for (item of weekarray; track item) {
+  <li class="list-group-item">{{ item }}</li>
+}
+</ul>
+
+<h2>Caso que haya repeticiones:</h2>
+<ul class="list-group m-5">
+@for (item of weekarray2; track $index; let i = $index) {
+  <li class="list-group-item">{{i}} - {{ item }}</li>
+}
+</ul>
+
+<table class="table m-5">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Edad</th>
+      <th scope="col">Ciudad</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of arrayDePersonas; track item.id) {
+      <tr  [ngClass]="{'table-danger': item.id==26}">
+        <td scope="row">{{item.id}}</td>
+        <td>{{item.nombre}}</td>
+        <td>{{item.edad}}</td>
+        <td>{{item.ciudad}}</td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+
+
+<h2>Attribute directives using ngClass</h2>
+
+<div class="container"></div>
+  <div class="row">
+    <div class="col">
+      <h1>ngClass</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn" [ngClass]="{'btn-primary': colorBoton, 'btn-secondary': !colorBoton}">Botón 1</button>
+    </div>
+    <div class="col">
+      <button class="btn" [ngClass]="{'btn-primary': !colorBoton, 'btn-secondary': colorBoton}">Botón 2</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-warning" (click)="cambio()">Cambio de primary a secondary</button>
+    </div>
+  </div>
