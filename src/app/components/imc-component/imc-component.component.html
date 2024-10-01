@@ -1,0 +1,40 @@
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Peso en kg</span>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Peso"
+    aria-label="Peso"
+    aria-describedby="basic-addon1"
+    [(ngModel)]="peso"
+  />
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Altura en metros</span>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Altura"
+    aria-label="Altura"
+    aria-describedby="basic-addon1"
+    [(ngModel)]="altura"
+  />
+</div>
+
+<button class="btn btn-primary" (click)="calcularIMC()">Calcular IMC</button>
+
+@if (imc){
+<h1>Tu IMC es: {{ imc }}</h1>
+
+@if (imc<18.5){
+<h1>Peso insuficiente</h1>
+} @else if (imc>=18.5 && imc<24.9){
+<h1>Peso normal</h1>
+} @else if (imc>=25 && imc<29.9){
+<h1>Sobrepeso</h1>
+} @else if (imc>=30){
+<h1>Obesidad</h1>
+} } @else {
+<h1>Introduce tu peso y altura para calcular tu IMC</h1>
+}
