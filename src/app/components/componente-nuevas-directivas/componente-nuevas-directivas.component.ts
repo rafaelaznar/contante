@@ -5,14 +5,15 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-componente-nuevas-directivas',
   templateUrl: './componente-nuevas-directivas.component.html',
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule, CommonModule],
   standalone: true,
   styleUrls: ['./componente-nuevas-directivas.component.css'],
 })
 export class ComponenteNuevasDirectivasComponent implements OnInit {
-  numero1:number = 0;
-  numero2:number = 4;
-  colorBoton:boolean = true;
+  numero1: number = 0;
+  numero2: number = 4;
+  colorBoton: boolean = true;
+  nombre2: string = 'Ana';
 
   weekarray = [
     'Lunes',
@@ -52,8 +53,7 @@ export class ComponenteNuevasDirectivasComponent implements OnInit {
 
   ngOnInit() {}
 
-  cambio(){
+  cambio() {
     this.colorBoton = !this.colorBoton;
   }
-
 }

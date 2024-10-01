@@ -1,3 +1,17 @@
+<h1>directiva let</h1>
+
+  @let nombre='Juan';
+
+  <h1>{{nombre}}</h1>
+
+  <h1>{{nombre2}}</h1>
+
+  @let saludo ='Hola ' + nombre;
+
+  <h1>{{saludo}}</h1>
+
+  <h1>directiva if</h1>
+
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Número 1</span>
   <input type="text" class="form-control" placeholder="numero 1" aria-label="numero 1" aria-describedby="basic-addon1" [(ngModel)]="numero1">
@@ -39,6 +53,7 @@
 }
 
 
+<h1>directiva for</h1>
 
 <ul class="list-group m-5">
 @for (item of weekarray; track item) {
@@ -95,3 +110,7 @@
       <button class="btn btn-warning" (click)="cambio()">Cambio de primary a secondary</button>
     </div>
   </div>
+
+
+
+
